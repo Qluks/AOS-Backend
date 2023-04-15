@@ -1,6 +1,9 @@
 const express = require('express');
+const usersController = require('./controllers/usersController');
+const usersMiddlewares = require('./middlewares/usersMiddlewares');
 const router = express.Router();
 
-router.get('/', (req, res) => res.status(200).send('router devidamente configurado!'));
+router.get('/users', usersController.getAll);
+router.post('/users', usersMiddlewares.validateFieldEmail, usersController.registerUsers);
 
 module.exports = router;
