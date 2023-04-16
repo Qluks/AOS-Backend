@@ -6,13 +6,13 @@ const getAll = async () => {
 };
 
 const registerUsers = async (user) => {
-  const { name, email, sexo, password } = user;
-  const [registerUsers] = await connection.execute('INSERT INTO users(name, email, sexo, password) VALUES (?, ?, ?, ?)', [name, email, sexo, password]);
+  const { name, email, sexo, password, confirmPassword } = user;
+  const [registerUsers] = await connection.execute('INSERT INTO users(name, email, sexo, password, confirmPassword) VALUES (?, ?, ?, ?, ?)', [name, email, sexo, password, confirmPassword]);
   return {insertId: registerUsers.insertId};
 };
 
 
 module.exports = {
   getAll,
-  registerUsers
+  registerUsers,
 };
