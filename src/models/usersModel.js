@@ -11,8 +11,17 @@ const registerUsers = async (user) => {
   return {insertId: registerUsers.insertId};
 };
 
+const updatePassward = async (id, user) => {
+  const { password, confirmPassword } = user;
+  const query = "UPDATE users SET password = ?, confirmPassword = ? WHERE id = ?";
+
+  const [updatePassward] = await connection.execute(query, [password, confirmPassword, id]);
+  return updatePassward;
+};
+
 
 module.exports = {
   getAll,
   registerUsers,
+  updatePassward
 };
