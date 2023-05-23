@@ -10,7 +10,13 @@ const registerUsers = async (req, res) => {
   return res.status(201).json(registerUsers);
 };
 
+const updatePassword = async (req, res) => {
+  const registerUsers = await usersModel.updatePassword(req.body);
+  return res.status(201).json(registerUsers);
+};
+
 module.exports = {
   getAll,
   registerUsers,
+  updatePassword
 };
