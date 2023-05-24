@@ -3,7 +3,7 @@ Parse.initialize('FrLZPOEsndCW47I6s5FAeQZrasMWHU0LOM9wrEbo', 'UIXbQnWRR7MA6cibuG
 Parse.serverURL = 'https://parseapi.back4app.com/';
 
 const getAll = async () => {
-  const notice = Parse.Object.extend('noticias');
+  const notice = Parse.Object.extend('animes');
   const query = new Parse.Query(notice);
 
   const objects = await query.find();

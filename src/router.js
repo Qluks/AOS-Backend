@@ -3,6 +3,7 @@ const usersController = require('./controllers/usersController');
 const usersMiddlewares = require('./middlewares/usersMiddlewares');
 const animeController = require('./controllers/animeController');
 const noticeControler = require('./controllers/noticeController');
+const catalogoController = require('./controllers/catalogoController');
 
 const router = express.Router();
 
@@ -15,5 +16,7 @@ router.post('/anime', animeController.addAnime);
 router.delete('/anime/:object_id', animeController.deleteAnime);
 
 router.get('/notice',noticeControler.getAll);
+
+router.get('/catalogo', catalogoController.getAll);
 
 module.exports = router;
