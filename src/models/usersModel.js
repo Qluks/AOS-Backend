@@ -27,21 +27,8 @@ const updatePassword = async (id, user) => {
   return updatePassword;
 };
 
-const authenticateUser = async (name, password) => {
-  const [users] = await connection.execute('SELECT * FROM users WHERE name = ?', [name]);
-
-  if (users.length === 0) {
-    return false;
-  }
-
-  const { password: hashedPassword } = users[0];
-  const isMatch = await bcrypt.compare(password, hashedPassword);
-  return isMatch;
-};
-
 module.exports = {
   getAll,
   registerUsers,
   updatePassword,
-  authenticateUser
 };
