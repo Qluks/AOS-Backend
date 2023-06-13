@@ -1,5 +1,4 @@
 const connection = require('./connection');
-const user = require('../models/usersModel')
 
 const getAll = async () => {
     const [anime] = await connection.execute('SELECT * FROM anime');

@@ -6,6 +6,11 @@ const getAll = async () => {
   return users;
 };
 
+const getById = async (email) => {
+  const [users] = await connection.execute('SELECT * FROM users WHERE email = ?', [email]);
+  return users;
+};
+
 const registerUsers = async (user) => {
   const { name, email, sexo, password, confirmPassword } = user;
 
@@ -31,4 +36,5 @@ module.exports = {
   getAll,
   registerUsers,
   updatePassword,
+  getById
 };

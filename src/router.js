@@ -8,6 +8,7 @@ const catalogoController = require('./controllers/catalogoController');
 const router = express.Router();
 
 router.get('/users', usersController.getAll);
+router.get('/users/:email', usersController.getById);
 router.post('/users', usersMiddlewares.checkEmail, usersMiddlewares.checkPassword ,usersMiddlewares.validateFieldPassword ,usersController.registerUsers);
 router.put('/users/:id', usersController.updatePassword);
 
